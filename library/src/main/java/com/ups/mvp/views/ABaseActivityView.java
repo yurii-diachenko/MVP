@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.ups.mvp.R;
@@ -12,7 +12,7 @@ import com.ups.mvp.presenters.IPresenter;
 
 import butterknife.ButterKnife;
 
-public abstract class ABaseActivityView<T extends IPresenter> extends FragmentActivity implements IView {
+public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatActivity implements IView {
     protected ProgressDialog progressDialog;
 
     protected T presenter;
