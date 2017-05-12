@@ -112,4 +112,16 @@ public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatA
         super.onResume();
         presenter.resumed();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.started();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.stopped();
+    }
 }

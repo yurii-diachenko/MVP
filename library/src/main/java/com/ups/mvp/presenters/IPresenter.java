@@ -16,4 +16,10 @@ public abstract class IPresenter<T extends IView> {
 
     public void paused() {
     }
+
+    public void started() {
+    }
+
+    public void stopped() {
+    }
 }
