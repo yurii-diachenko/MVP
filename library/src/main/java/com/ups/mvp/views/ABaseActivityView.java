@@ -57,10 +57,14 @@ public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatA
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (progressDialog == null) {
-                    progressDialog = new ProgressDialog(ABaseActivityView.this);
-                    progressDialog.setCancelable(false);
-                    progressDialog.show();
+                try {
+                    if (progressDialog == null) {
+                        progressDialog = new ProgressDialog(ABaseActivityView.this);
+                        progressDialog.setCancelable(false);
+                        progressDialog.show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -71,9 +75,13 @@ public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatA
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (progressDialog != null && progressDialog.isShowing()) {
-                    progressDialog.dismiss();
-                    progressDialog = null;
+                try {
+                    if (progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                        progressDialog = null;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -94,11 +102,15 @@ public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatA
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ABaseActivityView.this);
-                builder.setTitle(title);
-                builder.setMessage(body);
-                builder.setNeutralButton(R.string.btn_ok, null);
-                builder.show();
+                try {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ABaseActivityView.this);
+                    builder.setTitle(title);
+                    builder.setMessage(body);
+                    builder.setNeutralButton(R.string.btn_ok, null);
+                    builder.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

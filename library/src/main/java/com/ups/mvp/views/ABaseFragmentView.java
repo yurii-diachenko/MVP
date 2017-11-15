@@ -52,18 +52,26 @@ public abstract class ABaseFragmentView<T extends IPresenter> extends Fragment i
 
     @Override
     public void showProgress() {
-        if (progressDialog == null) {
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setCancelable(false);
-            progressDialog.show();
+        try {
+            if (progressDialog == null) {
+                progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public void hideProgress() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
-            progressDialog = null;
+        try {
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+                progressDialog = null;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
