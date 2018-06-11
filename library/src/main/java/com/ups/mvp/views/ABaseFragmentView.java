@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 import com.ups.mvp.R;
 import com.ups.mvp.presenters.IPresenter;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by test on 23.09.2015.
  */
@@ -33,7 +31,6 @@ public abstract class ABaseFragmentView<T extends IPresenter> extends Fragment i
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (root == null) {
             root = inflater.inflate(getLayoutId(), container, false);
-            ButterKnife.bind(this, root);
             onViewCreated(savedInstanceState);
             presenter = createPresenter();
             presenter.init();

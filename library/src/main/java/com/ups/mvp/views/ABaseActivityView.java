@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import com.ups.mvp.R;
 import com.ups.mvp.presenters.IPresenter;
 
-import butterknife.ButterKnife;
 
 public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatActivity implements IView {
     protected ProgressDialog progressDialog;
@@ -27,7 +26,6 @@ public abstract class ABaseActivityView<T extends IPresenter> extends AppCompatA
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         setContentView(getLayoutId());
-        ButterKnife.bind(this);
         onViewCreated(savedInstanceState);
         presenter = createPresenter();
         presenter.init();
